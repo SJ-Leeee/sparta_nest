@@ -17,7 +17,7 @@ export class BoardService {
 
   getArticleById(id: number) {
     return this.articles.find((article) => {
-      article.id === id;
+      return article.id === id;
     });
   }
 
@@ -46,7 +46,7 @@ export class BoardService {
       throw new UnauthorizedException('Password is not correct');
     }
 
-    this.articles.filter((article) => {
+    this.articles = this.articles.filter((article) => {
       return article.id !== id;
     });
   }
